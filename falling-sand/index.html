@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Falling Sand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="head">
+      <h1>Falling Sand</h1>
+      <p>Drag on the canvas to pour particles. Scroll to resize the brush.</p>
+    </header>
+
+    <div class="stage">
+      <canvas id="canvas" width="200" height="150"
+        aria-label="Falling sand simulation grid, 200 by 150 cells"></canvas>
+    </div>
+
+    <section class="panel" aria-label="Controls">
+      <div class="row elements" role="group" aria-label="Elements">
+        <button class="element" type="button" data-type="1" aria-pressed="true" style="--swatch:#e8c46a">
+          <span class="swatch"></span>Sand<kbd>1</kbd>
+        </button>
+        <button class="element" type="button" data-type="2" aria-pressed="false" style="--swatch:#4f9de0">
+          <span class="swatch"></span>Water<kbd>2</kbd>
+        </button>
+        <button class="element" type="button" data-type="3" aria-pressed="false" style="--swatch:#8a8a92">
+          <span class="swatch"></span>Stone<kbd>3</kbd>
+        </button>
+        <button class="element" type="button" data-type="4" aria-pressed="false" style="--swatch:#8a5f36">
+          <span class="swatch"></span>Wood<kbd>4</kbd>
+        </button>
+        <button class="element" type="button" data-type="5" aria-pressed="false" style="--swatch:#ff7a2f">
+          <span class="swatch"></span>Fire<kbd>5</kbd>
+        </button>
+        <button class="element" type="button" data-type="6" aria-pressed="false" style="--swatch:#b9b9c2">
+          <span class="swatch"></span>Smoke<kbd>6</kbd>
+        </button>
+        <button class="element" type="button" data-type="7" aria-pressed="false" style="--swatch:#55555c">
+          <span class="swatch"></span>Gunpowder<kbd>7</kbd>
+        </button>
+        <button class="element" type="button" data-type="8" aria-pressed="false" style="--swatch:#8cff4d">
+          <span class="swatch"></span>Acid<kbd>8</kbd>
+        </button>
+        <button class="element" type="button" data-type="9" aria-pressed="false" style="--swatch:#ff5a1f">
+          <span class="swatch"></span>Lava<kbd>9</kbd>
+        </button>
+        <button class="element" type="button" data-type="0" aria-pressed="false" style="--swatch:#121214">
+          <span class="swatch"></span>Eraser<kbd>0</kbd>
+        </button>
+      </div>
+
+      <div class="row settings">
+        <label class="field" for="brush">
+          <span class="field-label">Brush</span>
+          <input id="brush" type="range" min="1" max="10" step="1" value="4" aria-describedby="brush-value">
+          <output id="brush-value" for="brush">4</output>
+        </label>
+
+        <div class="actions">
+          <button id="pause" class="action" type="button" aria-pressed="false">Pause</button>
+          <button id="step" class="action" type="button">Step</button>
+          <button id="clear" class="action" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="row stats">
+        <span class="stat"><span class="stat-label">fps</span><span id="fps" class="stat-value">--</span></span>
+        <span class="stat"><span class="stat-label">particles</span><span id="particles" class="stat-value">0</span></span>
+        <span class="hint">space pause · 1-9 elements · 0 erase</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

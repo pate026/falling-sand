@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background: radial-gradient(1100px 620px at 50% -15%, #1b1b21 0%, #08080a 62%);
+  color: #e7e7ec;
+  font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  width: 800px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.head h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f4f4f7;
+}
+
+.head p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #83838f;
+}
+
+.stage {
+  line-height: 0;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  background: #121214;
+  border: 1px solid #26262e;
+  border-radius: 12px;
+  box-shadow:
+    0 26px 60px -24px rgba(0, 0, 0, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(20, 20, 24, 0.86);
+  border: 1px solid #232329;
+  border-radius: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.element {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 13px;
+  color: #c2c2cc;
+  background: #17171c;
+  border: 1px solid #2a2a33;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.element:hover {
+  background: #1e1e25;
+  border-color: #3a3a46;
+  color: #f2f2f5;
+}
+
+.element:focus-visible,
+.action:focus-visible,
+input[type="range"]:focus-visible {
+  outline: 2px solid #ffb454;
+  outline-offset: 2px;
+}
+
+.element[aria-pressed="true"] {
+  background: #27272f;
+  border-color: #4c4c5c;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--swatch);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+kbd {
+  font: 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #7d7d8a;
+  background: #0f0f13;
+  border: 1px solid #2a2a33;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.field {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: #15151a;
+  border: 1px solid #26262e;
+  border-radius: 10px;
+}
+
+.field-label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #83838f;
+}
+
+input[type="range"] {
+  width: 150px;
+  accent-color: #ffb454;
+  cursor: pointer;
+}
+
+#brush-value {
+  min-width: 2ch;
+  font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #f4f4f7;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.action {
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 13px;
+  color: #d3d3dc;
+  background: #1b1b21;
+  border: 1px solid #2d2d37;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.action:hover {
+  background: #23232b;
+  border-color: #3d3d4a;
+  color: #fff;
+}
+
+.action[aria-pressed="true"] {
+  background: #2f2a1d;
+  border-color: #6b5528;
+  color: #ffcf87;
+}
+
+.stats {
+  gap: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #202028;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6f6f7c;
+}
+
+.stat-value {
+  font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #ececf2;
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: #5f5f6b;
+}
+
+@media (max-width: 620px) {
+  .actions {
+    margin-left: 0;
+  }
+
+  .hint {
+    margin-left: 0;
+    width: 100%;
+  }
+}
